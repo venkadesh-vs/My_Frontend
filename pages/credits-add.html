@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Credit - ShopKhata</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/credits-add.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo-section">
+            <span class="logo-icon">📓</span>
+            <span class="logo-text">ShopKhata</span>
+        </div>
+        <div class="user-section">
+            <span class="user-email">owner@shopkhata.com</span>
+            <a href="../index.html" class="logout-btn">Logout</a>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="menu-title">MENU</div>
+        <ul class="menu-items">
+            <li class="menu-item">
+                <a href="dashboard.html" class="menu-link">
+                    <span class="menu-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="customers.html" class="menu-link">
+                    <span class="menu-icon">👥</span>
+                    <span>Customers</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="credits.html" class="menu-link active">
+                    <span class="menu-icon">💳</span>
+                    <span>Credits</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="payments.html" class="menu-link">
+                    <span class="menu-icon">💰</span>
+                    <span>Payments</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="ledger.html" class="menu-link">
+                    <span class="menu-icon">📖</span>
+                    <span>Ledger</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="page-header-row">
+            <div class="page-header">
+                <h1 class="page-title">Credits</h1>
+                <p class="page-subtitle">Record credit entries</p>
+            </div>
+            <a href="#" class="btn btn-primary">+ Add Credit</a>
+        </div>
+
+        <!-- Add Credit Form -->
+        <div class="add-form-card">
+            <form>
+                <div class="form-group">
+                    <select>
+                        <option>Select Customer</option>
+                        <option>Raj Kumar</option>
+                        <option>Priya Singh</option>
+                        <option>Arjun Patel</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="number" placeholder="Amount" class="amount-input">
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Description (optional)" id="description">
+                </div>
+                <div class="form-group">
+                    <label for="date"
+                        style="display:block; margin-bottom:8px; color:#888888; font-size:14px;">Date</label>
+                    <input type="date" id="date" class="date-input">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a href="credits.html" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Credit Entries -->
+        <div class="credit-list">
+            <!-- Populated dynamically if needed, or left empty for Add Page -->
+        </div>
+    </div>
+    <script src="../js/toast.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/credits-add.js"></script>
+</body>
+
+</html>

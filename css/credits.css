@@ -1,0 +1,93 @@
+/* Page Header with Button */
+.page-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+/* Credit List */
+.credit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.credit-item {
+    background-color: #1a1a1a;
+    padding: 24px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.credit-info {
+    flex: 1;
+}
+
+.credit-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.credit-description {
+    font-size: 14px;
+    color: #888888;
+    margin-bottom: 2px;
+}
+
+.credit-date {
+    font-size: 13px;
+    color: #666666;
+}
+
+.credit-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.credit-amount {
+    font-size: 20px;
+    font-weight: bold;
+    color: #f71717ae;
+}
+
+/* Pagination Styles */
+.pagination-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    padding-top: 20px;
+    border-top: 1px solid #1a1a1a;
+}
+
+.pagination-btn {
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background-color: #333333;
+    border-color: #ff0000;
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.page-info {
+    color: #888888;
+    font-size: 14px;
+}

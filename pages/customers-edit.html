@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Customer - ShopKhata</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/customers-edit.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo-section">
+            <span class="logo-icon">📓</span>
+            <span class="logo-text">ShopKhata</span>
+        </div>
+        <div class="user-section">
+            <span class="user-email">owner@shopkhata.com</span>
+            <a href="./index.html" class="logout-btn">Logout</a>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="menu-title">MENU</div>
+        <ul class="menu-items">
+            <li class="menu-item">
+                <a href="dashboard.html" class="menu-link">
+                    <span class="menu-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="customers.html" class="menu-link active">
+                    <span class="menu-icon">👥</span>
+                    <span>Customers</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="credits.html" class="menu-link">
+                    <span class="menu-icon">💳</span>
+                    <span>Credits</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="payments.html" class="menu-link">
+                    <span class="menu-icon">💰</span>
+                    <span>Payments</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="ledger.html" class="menu-link">
+                    <span class="menu-icon">📖</span>
+                    <span>Ledger</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="page-header-row">
+            <div class="page-header">
+                <h1 class="page-title">Customers</h1>
+                <p class="page-subtitle">Manage your customer database</p>
+            </div>
+            <a href="customers-add.html" class="btn btn-primary">+ Add Customer</a>
+        </div>
+
+        <!-- Edit Form -->
+        <div class="edit-form-card">
+            <h3 class="form-title">Edit Customer</h3>
+            <form>
+                <div class="form-group">
+                    <input type="text" placeholder="Raj Kumar" value="Raj Kumar">
+                </div>
+                <div class="form-group">
+                    <div class="phone-input-wrapper">
+                        <span class="phone-prefix">+91</span>
+                        <input type="tel" placeholder="98765 43210" value="98765 43210">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="raj@example.com" value="raj@example.com">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <a href="customers.html" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Customer Cards -->
+        <div class="customers-grid">
+            <div class="customer-card">
+                <div class="customer-info">
+                    <h3 class="customer-name">Raj Kumar</h3>
+                    <p class="customer-detail">+91 98765 43210</p>
+                    <p class="customer-detail">raj@example.com</p>
+                </div>
+                <div class="customer-actions">
+                    <a href="#" class="icon-edit">✏️</a>
+                    <a href="#" class="icon-delete">🗑️</a>
+                </div>
+            </div>
+
+            <div class="customer-card">
+                <div class="customer-info">
+                    <h3 class="customer-name">Priya Singh</h3>
+                    <p class="customer-detail">+91 87654 32109</p>
+                    <p class="customer-detail">priya@example.com</p>
+                </div>
+                <div class="customer-actions">
+                    <a href="#" class="icon-edit">✏️</a>
+                    <a href="#" class="icon-delete">🗑️</a>
+                </div>
+            </div>
+
+            <div class="customer-card">
+                <div class="customer-info">
+                    <h3 class="customer-name">Arjun Patel</h3>
+                    <p class="customer-detail">+91 76543 21098</p>
+                    <p class="customer-detail">arjun@example.com</p>
+                </div>
+                <div class="customer-actions">
+                    <a href="#" class="icon-edit">✏️</a>
+                    <a href="#" class="icon-delete">🗑️</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../js/toast.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/customers-edit.js"></script>
+</body>
+
+</html>

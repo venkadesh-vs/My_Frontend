@@ -1,0 +1,111 @@
+/* Customer Selector */
+.customer-selector {
+    margin-bottom: 30px;
+}
+
+.customer-selector select {
+    max-width: 100%;
+    padding: 14px 16px;
+}
+
+/* Account Summary */
+.account-summary {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.summary-left {
+    flex: 1;
+}
+
+.customer-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.account-label {
+    font-size: 14px;
+    color: #888888;
+}
+
+.summary-right {
+    text-align: right;
+}
+
+.outstanding-label {
+    font-size: 14px;
+    color: #888888;
+    margin-bottom: 4px;
+}
+
+.outstanding-amount {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff0000;
+}
+
+/* Ledger Table */
+.ledger-table {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1.5fr 1.5fr 1.5fr;
+    padding: 20px 24px;
+    background-color:#242424;
+    font-weight: bold;
+    font-size: 14px;
+    color: #ffffff;
+    border-bottom: 1px solid #333333;
+}
+
+.table-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1.5fr 1.5fr 1.5fr;
+    padding: 20px 24px;
+    border-bottom: 1px solid #333333;
+    color: #ffffff;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.col-date {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.col-description {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.col-debit {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.col-credit {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.col-balance {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.balance-red {
+    color: #ff0000;
+}

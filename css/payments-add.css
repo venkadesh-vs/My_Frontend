@@ -1,0 +1,75 @@
+/* Page Header with Button */
+.page-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+/* Add Form Card */
+.add-form-card {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+/* Payment List */
+.payment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.payment-item {
+    background-color: #1a1a1a;
+    padding: 24px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.payment-info {
+    flex: 1;
+}
+
+.payment-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.payment-method {
+    font-size: 14px;
+    color: #888888;
+    margin-bottom: 2px;
+}
+
+.payment-date {
+    font-size: 13px;
+    color: #666666;
+}
+
+.payment-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.payment-amount {
+    font-size: 20px;
+    font-weight: bold;
+    color: #4a9eff;
+}

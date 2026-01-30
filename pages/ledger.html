@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ledger - ShopKhata</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/ledger.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo-section">
+            <span class="logo-icon">📓</span>
+            <span class="logo-text">ShopKhata</span>
+        </div>
+        <div class="user-section">
+            <span class="user-email">owner@shopkhata.com</span>
+            <a href="../index.html" class="logout-btn">Logout</a>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="menu-title">MENU</div>
+        <ul class="menu-items">
+            <li class="menu-item">
+                <a href="dashboard.html" class="menu-link">
+                    <span class="menu-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="customers.html" class="menu-link">
+                    <span class="menu-icon">👥</span>
+                    <span>Customers</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="credits.html" class="menu-link">
+                    <span class="menu-icon">💳</span>
+                    <span>Credits</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="payments.html" class="menu-link">
+                    <span class="menu-icon">💰</span>
+                    <span>Payments</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="ledger.html" class="menu-link active">
+                    <span class="menu-icon">📖</span>
+                    <span>Ledger</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="page-header">
+            <h1 class="page-title">Ledger</h1>
+            <p class="page-subtitle">Detailed account statement</p>
+        </div>
+
+        <!-- Customer Selector -->
+        <div class="customer-selector">
+            <input type="text" id="customerSearch" placeholder="Search customer..." style="margin-bottom: 15px;">
+            <select id="customerSelect">
+                <option value="">Select a customer</option>
+            </select>
+        </div>
+
+        <!-- Account Summary -->
+        <div class="account-summary">
+            <div class="summary-left">
+                <h2 class="customer-name"></h2>
+                <p class="account-label">Account Statement</p>
+            </div>
+            <div class="summary-right">
+                <p class="outstanding-label">Outstanding Balance</p>
+                <p class="outstanding-amount">₹0</p>
+            </div>
+        </div>
+
+        <!-- Ledger Table -->
+        <div class="ledger-table">
+            <div class="table-header">
+                <div class="col-date">Date</div>
+                <div class="col-description">Description</div>
+                <div class="col-debit">Debit</div>
+                <div class="col-credit">Credit</div>
+                <div class="col-balance">Balance</div>
+            </div>
+            <!-- Rows will be populated by JS -->
+        </div>
+    </div>
+    <script src="../js/toast.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/ledger.js"></script>
+</body>
+
+</html>

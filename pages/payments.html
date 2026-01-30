@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payments - ShopKhata</title>
+    <link rel="stylesheet" href="../css/payments.css">
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo-section">
+            <span class="logo-icon">📓</span>
+            <span class="logo-text">ShopKhata</span>
+        </div>
+        <div class="user-section">
+            <span class="user-email">owner@shopkhata.com</span>
+            <a href="../index.html" class="logout-btn">Logout</a>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="menu-title">MENU</div>
+        <ul class="menu-items">
+            <li class="menu-item">
+                <a href="dashboard.html" class="menu-link">
+                    <span class="menu-icon">📊</span>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="customers.html" class="menu-link">
+                    <span class="menu-icon">👥</span>
+                    <span>Customers</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="credits.html" class="menu-link">
+                    <span class="menu-icon">💳</span>
+                    <span>Credits</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="payments.html" class="menu-link active">
+                    <span class="menu-icon">💰</span>
+                    <span>Payments</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="ledger.html" class="menu-link">
+                    <span class="menu-icon">📖</span>
+                    <span>Ledger</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="page-header-row">
+            <div class="page-header">
+                <h1 class="page-title">Payments</h1>
+                <p class="page-subtitle">Record payment receipts</p>
+            </div>
+            <a href="payments-add.html" class="btn btn-primary">+ Add Payment</a>
+        </div>
+
+        <!-- Payment Entries -->
+        <div class="payment-list">
+            <!-- Populated by JS -->
+        </div>
+
+        <!-- Pagination Controls -->
+        <div class="pagination-container" id="paginationControls" style="display: none;">
+            <button class="pagination-btn" id="prevBtn">Previous</button>
+            <span class="page-info" id="pageInfo">Page 1 of 1</span>
+            <button class="pagination-btn" id="nextBtn">Next</button>
+        </div>
+    </div>
+    <script src="../js/toast.js"></script>
+    <script src="../js/api.js"></script>
+    <script src="../js/payments.js"></script>
+</body>
+
+</html>

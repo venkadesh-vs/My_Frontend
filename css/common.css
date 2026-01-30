@@ -1,0 +1,318 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0a0a0a;
+    color: #ffffff;
+}
+
+/* Header */
+.header {
+    background-color: #000000;
+    padding: 0 40px;
+    /* Adjusted padding for fixed height alignment */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1a1a1a;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 65px;
+    z-index: 1000;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    color: #ff0000;
+    font-size: 24px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.user-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.user-email {
+    color: #888888;
+    font-size: 14px;
+}
+
+.logout-btn {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.logout-btn:hover {
+    color: #ff0000;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 65px;
+    width: 240px;
+    height: calc(100vh - 65px);
+    background-color: #000000;
+    padding: 20px 0;
+    border-right: 1px solid #1a1a1a;
+}
+
+.menu-title {
+    color: #888888;
+    font-size: 12px;
+    padding: 10px 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.menu-items {
+    list-style: none;
+}
+
+.menu-item {
+    padding: 0;
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+    transition: background-color 0.2s;
+}
+
+.menu-link:hover {
+    background-color: #1a1a1a;
+}
+
+.menu-link.active {
+    background-color: #ff0000;
+    color: #ffffff;
+}
+
+.menu-icon {
+    font-size: 18px;
+    width: 20px;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 240px;
+    padding: 105px 40px 40px;
+    min-height: 100vh;
+}
+
+.page-header {
+    margin-bottom: 40px;
+}
+
+.page-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.page-subtitle {
+    font-size: 15px;
+    color: #888888;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: #ff0000;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #cc0000;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #333333;
+}
+
+.btn-secondary:hover {
+    background-color: #1a1a1a;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 14px 16px;
+    background-color: #1a1a1a;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    color: #ffffff;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #ff0000;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #666666;
+}
+
+/* Icons */
+.icon-edit {
+    color: #4a9eff;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.icon-delete {
+    color: #ff0000;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.icon-edit:hover,
+.icon-delete:hover {
+    opacity: 0.8;
+}
+
+/* Toast Notification Styles */
+#toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toast {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 16px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 300px;
+    border: 1px solid #333333;
+    animation: slideIn 0.3s ease-out;
+    transition: all 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.toast-icon {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Matching website theme (Red) */
+.toast-success {
+    border-left: 4px solid #ff0000;
+}
+
+.toast-success .toast-icon {
+    color: #ff0000;
+}
+
+.toast-error {
+    border-left: 4px solid #ff0000;
+}
+
+.toast-error .toast-icon {
+    color: #ff0000;
+}
+
+.toast-close {
+    margin-left: auto;
+    cursor: pointer;
+    font-size: 20px;
+    color: #888888;
+}
+
+.toast-close:hover {
+    color: #ffffff;
+}
+
+/* Phone Input Fixed Prefix Style */
+.phone-input-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.phone-prefix {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888888;
+    font-size: 14px;
+    pointer-events: none;
+    user-select: none;
+    font-weight: 500;
+}
+
+/* Specific override for inputs inside the wrapper */
+.phone-input-wrapper input[type="tel"] {
+    padding-left: 50px !important;
+}
