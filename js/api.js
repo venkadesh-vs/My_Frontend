@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://127.0.0.1:8000";
+const API_BASE_URL = "https://deployment-backend-5y18.onrender.com";
 
 // Helper to check if user is logged in
 function checkAuth() {
