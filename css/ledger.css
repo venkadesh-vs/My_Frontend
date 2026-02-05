@@ -62,7 +62,7 @@
     display: grid;
     grid-template-columns: 1fr 2fr 1.5fr 1.5fr 1.5fr;
     padding: 20px 24px;
-    background-color:#242424;
+    background-color: #242424;
     font-weight: bold;
     font-size: 14px;
     color: #ffffff;
@@ -108,4 +108,37 @@
 
 .balance-red {
     color: #ff0000;
+}
+
+@media (max-width: 768px) {
+    .account-summary {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .summary-right {
+        text-align: left;
+    }
+
+    .outstanding-amount {
+        font-size: 24px;
+    }
+
+    .ledger-table {
+        overflow-x: auto;
+    }
+
+    .table-header,
+    .table-row {
+        min-width: 600px;
+        padding: 15px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .customer-name {
+        font-size: 20px;
+    }
 }

@@ -81,3 +81,28 @@
     color: #888888;
     font-size: 14px;
 }
+
+@media (max-width: 1024px) {
+    .customers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .page-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .customers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .pagination-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        font-size: 12px;
+    }
+}

@@ -316,3 +316,127 @@ textarea::placeholder {
 .phone-input-wrapper input[type="tel"] {
     padding-left: 50px !important;
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 1024px) {
+    .header {
+        padding: 0 20px;
+    }
+
+    .sidebar {
+        width: 70px;
+        padding: 20px 0;
+    }
+
+    .menu-title {
+        display: none;
+    }
+
+    .menu-link span:not(.menu-icon) {
+        display: none;
+    }
+
+    .menu-link {
+        justify-content: center;
+        padding: 15px 0;
+    }
+
+    .main-content {
+        margin-left: 70px;
+        padding: 105px 20px 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        height: 60px;
+        padding: 0 15px;
+    }
+
+    .logo-text {
+        font-size: 18px;
+    }
+
+    .user-email {
+        display: none;
+    }
+
+    .sidebar {
+        top: auto;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        display: flex;
+        padding: 0;
+        border-right: none;
+        border-top: 1px solid #1a1a1a;
+        z-index: 1001;
+    }
+
+    .menu-title {
+        display: none;
+    }
+
+    .menu-items {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .menu-item {
+        flex: 1;
+    }
+
+    .menu-link {
+        flex-direction: column;
+        gap: 4px;
+        padding: 8px 0;
+        font-size: 10px;
+    }
+
+    .menu-link span:not(.menu-icon) {
+        display: block;
+    }
+
+    .menu-icon {
+        font-size: 20px;
+        width: auto;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 80px 15px 80px;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 24px;
+    }
+
+    .page-header {
+        margin-bottom: 25px;
+    }
+
+    .page-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+}

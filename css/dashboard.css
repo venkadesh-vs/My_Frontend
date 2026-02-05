@@ -48,3 +48,34 @@
     height: 400px;
 }
 
+@media (max-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-card {
+        height: 350px;
+        padding: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .stat-card {
+        padding: 16px;
+    }
+
+    .stat-value {
+        font-size: 24px;
+    }
+}
