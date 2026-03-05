@@ -1,79 +1,74 @@
-  const user = checkAuth();
-  if (!user){
-    throw new Error ("User Invalid")
-  };
+const user = checkAuth();
+if (!user) {
+  throw new Error("User Invalid");
+}
 
-  // Header User Info
-  const userEmailEl = document.querySelector(".user-email");
-  if (userEmailEl) userEmailEl.textContent = user.email;
+// Header User Info
+const userEmailEl = document.querySelector(".user-email");
+if (userEmailEl) userEmailEl.textContent = user.email;
 
-  const select = document.getElementById("customerSelect");
-  const searchInput = document.getElementById("customerSearch");
+const select = document.getElementById("customerSelect");
+const searchInput = document.getElementById("customerSearch");
 
-  // Clear initial options
-  if (select)
-    select.innerHTML = '<option value="">Loading customers...</option>';
+// Clear initial options
+if (select) select.innerHTML = '<option value="">Loading customers...</option>';
 
-  let allCustomerOptions = []; // Store original options for filtering
+let allCustomerOptions = []; // Store original options for filtering
 
+try {
+  const getledger = async () => {
+    const response = await fetch(
+      `${API_BASE_URL}/api/customers?user_id=${user.user_id}`,
+    );
+    const customers = await response.json();
 
-  try {
-      const getledger = async () => {
-    
-        const response = await fetch(
-          `${API_BASE_URL}/api/customers?user_id=${user.user_id}`,
-        );
-        const customers = await response.json();
-    
-        if (select) {
+    if (select) {
+      select.innerHTML = '<option value="">Select a customer</option>';
+
+      // Populate Dropdown
+      customers.forEach((c) => {
+        const opt = document.createElement("option");
+        opt.value = c.customer_id;
+        opt.textContent = c.name;
+        select.appendChild(opt);
+
+        // Save for filtering
+        allCustomerOptions.push({
+          value: c.customer_id,
+          text: c.name.toLowerCase(),
+          element: opt,
+        });
+      });
+
+      // Handle Selection
+      select.addEventListener("change", (e) =>
+        loadLedger(e.target.value, user.user_id),
+      );
+
+      // Handle Search
+      if (searchInput) {
+        searchInput.addEventListener("input", (e) => {
+          const searchTerm = e.target.value.toLowerCase();
+
+          // Clear current options
           select.innerHTML = '<option value="">Select a customer</option>';
-    
-          // Populate Dropdown
-          customers.forEach((c) => {
-            const opt = document.createElement("option");
-            opt.value = c.customer_id;
-            opt.textContent = c.name;
-            select.appendChild(opt);
-    
-            // Save for filtering
-            allCustomerOptions.push({
-              value: c.customer_id,
-              text: c.name.toLowerCase(),
-              element: opt,
-            });
-          });
-    
-          // Handle Selection
-          select.addEventListener("change", (e) =>
-            loadLedger(e.target.value, user.user_id),
-          );
-    
-          // Handle Search
-          if (searchInput) {
-            searchInput.addEventListener("input", (e) => {
-              const searchTerm = e.target.value.toLowerCase();
-    
-              // Clear current options
-              select.innerHTML = '<option value="">Select a customer</option>';
-    
-              // Filter and re-append matches
-              allCustomerOptions.forEach((option) => {
-                if (option.text.includes(searchTerm)) {
-                  select.appendChild(option.element);
-                }
-              });
-    
-              // If exact match or only one option, maybe auto-select? (Optional, let's keep simple first)
-            });
-          }
-        }
-  }
-  getledger();
-  } 
 
-  catch (error) {
-    console.error("Error loading customers for ledger:", error);
-  }
+          // Filter and re-append matches
+          allCustomerOptions.forEach((option) => {
+            if (option.text.includes(searchTerm)) {
+              select.appendChild(option.element);
+            }
+          });
+
+          // If exact match or only one option, maybe auto-select? (Optional, let's keep simple first)
+        });
+      }
+    }
+  };
+  getledger();
+} catch (error) {
+  console.error("Error loading customers for ledger:", error);
+}
 
 async function loadLedger(customerId, userId) {
   if (!customerId) return;
