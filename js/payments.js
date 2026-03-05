@@ -1,6 +1,7 @@
-document.addEventListener('DOMContentLoaded', async () => {
     const user = checkAuth();
-    if (!user) return;
+    if (!user){
+      throw new Error("User Invalid")
+    }
 
     // Header User Info
     const userEmailEl = document.querySelector('.user-email');
@@ -20,6 +21,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         list.innerHTML = '<p style="color:white; text-align:center;">Loading payments...</p>';
 
         try {
+          const payments = async () =>{
+
             const response = await fetch(`${API_BASE_URL}/api/payments?user_id=${user.user_id}`);
             const data = await response.json();
 
@@ -28,6 +31,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             allPayments.sort((a, b) => new Date(b.date) - new Date(a.date));
 
             renderPayments();
+          }
+          payments();
 
         } catch (error) {
             console.error('Error:', error);
@@ -113,7 +118,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             renderPayments();
         }
     });
-});
 
 async function deletePayment(id, userId) {
     try {

@@ -1,7 +1,9 @@
-document.addEventListener('DOMContentLoaded', async () => {
+
     // 1. Check Auth
     const user = checkAuth();
-    if (!user) return;
+    if (!user) {
+        throw new Error("User is invalid")
+    }
 
     // 2. Set User Info
     const userEmailEl = document.querySelector('.user-email');
@@ -19,12 +21,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // 4. Load Data
     try {
-        await loadDashboardStats(user.user_id);
-        await loadDashboardCharts(user.user_id);
+         loadDashboardStats(user.user_id);
+         loadDashboardCharts(user.user_id);
     } catch (error) {
         console.error('Error loading dashboard data:', error);
     }
-});
+
 
 async function loadDashboardStats(userId) {
     try {
