@@ -132,16 +132,11 @@ async function deletePayment(id, userId) {
     );
 
     if (response.ok) {
-      showToast("Payment deleted successfully", "success");
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
+      window.location.reload();
     } else {
       const err = await response.json();
-      showToast(err.detail || "Failed to delete payment", "error");
     }
   } catch (error) {
     console.error("Delete error:", error);
-    showToast("Network error", "error");
   }
 }

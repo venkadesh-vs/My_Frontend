@@ -16,7 +16,6 @@ const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
 
 if (!id) {
-  showToast("No customer ID provided", "error");
   window.location.href = "customers.html";
 }
 
@@ -47,14 +46,13 @@ try {
       phoneInput.value = customer.phone;
       emailInput.value = customer.email;
     } else {
-      showToast("Customer not found", "error");
       window.location.href = "customers.html";
       return;
     }
   };
+  get_user();
 } catch (error) {
   console.error("Error loading customer:", error);
-  showToast("Error loading customer details", "error");
 }
 get_user();
 // Handle Update
@@ -76,16 +74,11 @@ form.addEventListener("submit", async (e) => {
     );
 
     if (response.ok) {
-      showToast("Customer updated successfully", "success");
-      setTimeout(() => {
-        window.location.href = "customers.html";
-      }, 1500);
+      window.location.href = "customers.html";
     } else {
       const err = await response.json();
-      showToast(err.detail || "Failed to update customer", "error");
     }
   } catch (error) {
     console.error("Update error:", error);
-    showToast("Network error", "error");
   }
 });

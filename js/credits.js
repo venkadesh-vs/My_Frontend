@@ -133,16 +133,11 @@ async function deleteCredit(id, userId) {
     );
 
     if (response.ok) {
-      showToast("Credit deleted successfully", "success");
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
+      window.location.reload();
     } else {
       const err = await response.json();
-      showToast(err.detail || "Failed to delete credit", "error");
     }
   } catch (error) {
     console.error("Delete error:", error);
-    showToast("Network error", "error");
   }
 }

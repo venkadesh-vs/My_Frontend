@@ -65,7 +65,6 @@ if (form) {
     const dateVal = dateInput.value;
 
     if (!customerId || !amount) {
-      showToast("Please select a customer and enter an amount", "error");
       return;
     }
 
@@ -83,17 +82,12 @@ if (form) {
       });
 
       if (response.ok) {
-        showToast("Payment added successfully", "success");
-        setTimeout(() => {
-          window.location.href = "payments.html";
-        }, 1500);
+        window.location.href = "payments.html";
       } else {
         const err = await response.json();
-        showToast(err.detail || "Failed to add payment", "error");
       }
     } catch (error) {
       console.error("Error:", error);
-      showToast("Network error", "error");
     }
   });
 }

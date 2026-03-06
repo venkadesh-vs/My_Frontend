@@ -13,7 +13,6 @@ if (loginModal) {
       const password = passwordInput.value;
 
       if (!email || !password) {
-        showToast("Please enter email and password", "error");
         return;
       }
 
@@ -27,17 +26,12 @@ if (loginModal) {
         if (response.ok) {
           const user = await response.json();
           localStorage.setItem("user", JSON.stringify(user));
-          showToast("Login successful", "success");
-          setTimeout(() => {
-            window.location.href = "./pages/dashboard.html";
-          }, 1500);
+          window.location.href = "./pages/dashboard.html";
         } else {
           const error = await response.json();
-          showToast(error.detail || "Login failed", "error");
         }
       } catch (error) {
         console.error("Login error:", error);
-        showToast("Network error. Ensure backend is running.", "error");
       }
     });
   }
@@ -60,7 +54,6 @@ if (signupModal) {
       const password = inputs[4].value;
 
       if (!shopName || !ownerName || !email || !password) {
-        showToast("Please fill all required fields", "error");
         return;
       }
 
@@ -80,17 +73,12 @@ if (signupModal) {
         if (response.ok) {
           const user = await response.json();
           localStorage.setItem("user", JSON.stringify(user));
-          showToast("Account created successfully!", "success");
-          setTimeout(() => {
-            window.location.href = "./pages/dashboard.html";
-          }, 1500);
+          window.location.href = "./pages/dashboard.html";
         } else {
           const error = await response.json();
-          showToast(error.detail || "Signup failed", "error");
         }
       } catch (error) {
         console.error("Signup error:", error);
-        showToast("Network error. Ensure backend is running.", "error");
       }
     });
   }

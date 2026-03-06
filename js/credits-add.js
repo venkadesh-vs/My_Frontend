@@ -55,7 +55,6 @@ if (form) {
     const dateVal = dateInput.value;
 
     if (!customerId || !amount) {
-      showToast("Please select a customer and enter an amount", "error");
       return;
     }
 
@@ -73,17 +72,12 @@ if (form) {
       });
 
       if (response.ok) {
-        showToast("Credit added successfully", "success");
-        setTimeout(() => {
-          window.location.href = "credits.html";
-        }, 1500);
+        window.location.href = "credits.html";
       } else {
         const err = await response.json();
-        showToast(err.detail || "Failed to add credit", "error");
       }
     } catch (error) {
       console.error("Error:", error);
-      showToast("Network error", "error");
     }
   });
 }

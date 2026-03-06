@@ -22,7 +22,6 @@ if (form) {
     const email = inputs[2].value;
 
     if (!name || !phone) {
-      showToast("Name and Phone are required", "error");
       return;
     }
 
@@ -40,19 +39,14 @@ if (form) {
         });
 
         if (response.ok) {
-          showToast("Customer added successfully", "success");
-          setTimeout(() => {
-            window.location.href = "customers.html";
-          }, 1500);
+          window.location.href = "customers.html";
         } else {
           const err = await response.json();
-          showToast(err.detail || "Failed to add customer", "error");
         }
       };
       customerAdd();
     } catch (error) {
       console.error(error);
-      showToast("Error adding customer", "error");
     }
   });
 }
