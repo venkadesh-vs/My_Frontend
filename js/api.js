@@ -1,4 +1,5 @@
-const API_BASE_URL = "http://localhost:8000";
+// const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = "https://my-backend-pwnq.onrender.com";
 
 // Helper to check if user is logged in
 function checkAuth() {
