@@ -8,14 +8,8 @@ const userEmailEl = document.querySelector(".user-email");
 if (userEmailEl) userEmailEl.textContent = user.email;
 
 const grid = document.querySelector(".customers-grid");
-const paginationControls = document.getElementById("paginationControls");
-const prevBtn = document.getElementById("prevBtn");
-const nextBtn = document.getElementById("nextBtn");
-const pageInfo = document.getElementById("pageInfo");
 
 let allCustomers = [];
-let currentPage = 1;
-const itemsPerPage = 12;
 
 if (grid) {
   grid.innerHTML =
@@ -47,23 +41,11 @@ function renderCustomers() {
   if (allCustomers.length === 0) {
     grid.innerHTML =
       '<p style="color:#aaa; text-align:center; grid-column: 1/-1;">No customers added yet.</p>';
-    paginationControls.style.display = "none";
     return;
   }
 
-  // Calculate Pagination
-  const totalPages = Math.ceil(allCustomers.length / itemsPerPage);
-
-  // Ensure currentPage is valid
-  if (currentPage < 1) currentPage = 1;
-  if (currentPage > totalPages) currentPage = totalPages;
-
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-  const currentSlice = allCustomers.slice(startIndex, endIndex);
-
   // Render Cards
-  currentSlice.forEach((customer) => {
+  allCustomers.forEach((customer) => {
     const card = document.createElement("div");
     card.className = "customer-card";
     card.innerHTML = `
@@ -79,16 +61,6 @@ function renderCustomers() {
             `;
     grid.appendChild(card);
   });
-
-  // Update Pagination Controls
-  if (totalPages > 1) {
-    paginationControls.style.display = "flex";
-    pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
-    prevBtn.disabled = currentPage === 1;
-    nextBtn.disabled = currentPage === totalPages;
-  } else {
-    paginationControls.style.display = "none";
-  }
 
   // Re-attach Delete Handlers
   attachDeleteHandlers();
@@ -106,21 +78,6 @@ function attachDeleteHandlers() {
   });
 }
 
-// Pagination Events
-prevBtn.addEventListener("click", () => {
-  if (currentPage > 1) {
-    currentPage--;
-    renderCustomers();
-  }
-});
-
-nextBtn.addEventListener("click", () => {
-  const totalPages = Math.ceil(allCustomers.length / itemsPerPage);
-  if (currentPage < totalPages) {
-    currentPage++;
-    renderCustomers();
-  }
-});
 async function deleteCustomer(id, userId) {
   try {
     const response = await fetch(
@@ -131,11 +88,15 @@ async function deleteCustomer(id, userId) {
     );
 
     if (response.ok) {
+      setPendingToast("success", "Customer deleted successfully!", "Deleted");
       window.location.reload();
     } else {
       const err = await response.json();
+      shopToast.error(err.detail || "Failed to delete customer");
     }
   } catch (error) {
     console.error("Delete error:", error);
+    shopToast.error("An unexpected error occurred");
   }
 }
+

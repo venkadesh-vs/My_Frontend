@@ -59,6 +59,12 @@ get_user();
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  const phone = phoneInput.value;
+  if (phone.length !== 10 || !/^\d+$/.test(phone)) {
+    shopToast.warning("Phone number must be exactly 10 digits");
+    return;
+  }
+
   try {
     const response = await fetch(
       `${API_BASE_URL}/api/customers/${id}?user_id=${user.user_id}`,
@@ -74,11 +80,14 @@ form.addEventListener("submit", async (e) => {
     );
 
     if (response.ok) {
+      setPendingToast("success", "Customer details updated successfully!", "Success");
       window.location.href = "customers.html";
     } else {
       const err = await response.json();
+      shopToast.error(err.detail || "Failed to update customer");
     }
   } catch (error) {
     console.error("Update error:", error);
+    shopToast.error("An unexpected error occurred");
   }
 });

@@ -186,23 +186,34 @@ textarea {
     width: 100%;
     padding: 14px 16px;
     background-color: #1a1a1a;
-    border: 1px solid #333333;
+    border: 1px solid #444444;
+    /* Slightly lighter border */
     border-radius: 6px;
     color: #ffffff;
     font-size: 14px;
     outline: none;
-    transition: border-color 0.2s;
+    transition: all 0.2s;
+}
+
+/* Calendar Icon Visibility in Chrome/Edge/Safari */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    /* Invert the icon color to make it white */
+    cursor: pointer;
 }
 
 input:focus,
 select:focus,
 textarea:focus {
     border-color: #ff0000;
+    background-color: #222222;
+    /* Slightly lighter on focus */
 }
 
 input::placeholder,
 textarea::placeholder {
-    color: #666666;
+    color: #888888;
+    /* Better contrast for placeholders */
 }
 
 /* Icons */

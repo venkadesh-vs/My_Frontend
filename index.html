@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShopKhata - Digital Credit Management System</title>
     <link rel="stylesheet" href="/frontend/css/landing.css">
+    <link rel="stylesheet" href="/frontend/css/toast.css">
 </head>
 
 <body>
@@ -178,7 +179,7 @@
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" placeholder="••••••••">
+                    <input type="password" placeholder="Enter your Password">
                 </div>
                 <a href="./pages/dashboard.html" class="btn btn-primary btn-full">Sign In</a>
             </form>
@@ -208,7 +209,7 @@
                 </div>
                 <div class="form-group">
                     <label>Owner Name</label>
-                    <input type="text" placeholder="Your name">
+                    <input type="text" placeholder="Enter your name">
                 </div>
                 <div class="form-group">
                     <label>Email</label>
@@ -218,12 +219,13 @@
                     <label>Phone</label>
                     <div class="phone-input-wrapper">
                         <span class="phone-prefix">+91</span>
-                        <input type="tel" placeholder="98765 43210">
+                        <input type="tel" placeholder="Enter your phone number" minlength="10" maxlength="10"
+                            pattern="\d{10}" title="Please enter exactly 10 digits" required>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" placeholder="••••••••">
+                    <input type="password" placeholder="Enter your password">
                 </div>
                 <a href="./pages/dashboard.html" class="btn btn-primary btn-full">Create Account</a>
             </form>
@@ -231,6 +233,7 @@
     </div>
 
     <script src="/frontend/js/api.js"></script>
+    <script src="/frontend/js/toast.js"></script>
     <script src="./js/auth.js"></script>
 </body>
 

@@ -56,42 +56,6 @@
     color: #f71717ae;
 }
 
-/* Pagination Styles */
-.pagination-container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 15px;
-    padding-top: 20px;
-    border-top: 1px solid #1a1a1a;
-}
-
-.pagination-btn {
-    background-color: #1a1a1a;
-    border: 1px solid #333333;
-    color: #ffffff;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: all 0.2s;
-}
-
-.pagination-btn:hover:not(:disabled) {
-    background-color: #333333;
-    border-color: #ff0000;
-}
-
-.pagination-btn:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.page-info {
-    color: #888888;
-    font-size: 14px;
-}
-
 @media (max-width: 768px) {
     .page-header-row {
         flex-direction: column;
@@ -109,12 +73,5 @@
     .credit-right {
         width: 100%;
         justify-content: space-between;
-    }
-
-    .pagination-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        font-size: 12px;
     }
 }
