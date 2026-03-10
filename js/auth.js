@@ -1,6 +1,4 @@
 // Login Handling
-import {API_BASE_URL} from './api'
-
 
 const loginModal = document.getElementById("login-modal");
 if (loginModal) {
@@ -30,7 +28,11 @@ if (loginModal) {
         if (response.ok) {
           const user = await response.json();
           localStorage.setItem("user", JSON.stringify(user));
-          setPendingToast("success", "Welcome back to ShopKhata!", "Login Successful");
+          setPendingToast(
+            "success",
+            "Welcome back to ShopKhata!",
+            "Login Successful",
+          );
           window.location.href = "./pages/dashboard.html";
         } else {
           const error = await response.json();
@@ -86,11 +88,17 @@ if (signupModal) {
         if (response.ok) {
           const user = await response.json();
           localStorage.setItem("user", JSON.stringify(user));
-          setPendingToast("success", "Your account has been created successfully.", "Registration Successful");
+          setPendingToast(
+            "success",
+            "Your account has been created successfully.",
+            "Registration Successful",
+          );
           window.location.href = "./pages/dashboard.html";
         } else {
           const error = await response.json();
-          shopToast.error(error.detail || "Error creating account. Please try again.");
+          shopToast.error(
+            error.detail || "Error creating account. Please try again.",
+          );
         }
       } catch (error) {
         console.error("Signup error:", error);
