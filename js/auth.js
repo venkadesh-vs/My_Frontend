@@ -1,5 +1,7 @@
 // Login Handling
-import API_BASE_URL from './api'
+import {API_BASE_URL} from './api'
+
+
 const loginModal = document.getElementById("login-modal");
 if (loginModal) {
   const loginBtn = loginModal.querySelector(".btn-primary");
