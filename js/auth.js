@@ -10,6 +10,7 @@ if (loginModal) {
   if (loginBtn) {
     loginBtn.addEventListener("click", async (e) => {
       e.preventDefault();
+      loginBtn.innerHTML = `<b>Loading ...</b>`
       const email = emailInput.value;
       const password = passwordInput.value;
 
@@ -56,6 +57,7 @@ if (signupModal) {
   if (signupBtn && inputs.length >= 5) {
     signupBtn.addEventListener("click", async (e) => {
       e.preventDefault();
+      signupBtn.innerHTML = `<b>Loading ...</b>`
       const shopName = inputs[0].value;
       const ownerName = inputs[1].value;
       const email = inputs[2].value;
