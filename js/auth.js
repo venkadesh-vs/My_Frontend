@@ -15,7 +15,7 @@ if (loginModal) {
       const password = passwordInput.value;
 
       if (!email || !password) {
-        shopToast.warning("Please enter both email and password");
+        alert("Warning: Please enter both email and password");
         return;
       }
 
@@ -29,19 +29,15 @@ if (loginModal) {
         if (response.ok) {
           const user = await response.json();
           localStorage.setItem("user", JSON.stringify(user));
-          setPendingToast(
-            "success",
-            "Welcome back to ShopKhata!",
-            "Login Successful",
-          );
+          alert("Success: Welcome back to ShopKhata!");
           window.location.href = "./pages/dashboard.html";
         } else {
           const error = await response.json();
-          shopToast.error(error.detail || "Invalid email or password");
+          alert("Error: " + (error.detail || "Invalid email or password"));
         }
       } catch (error) {
         console.error("Login error:", error);
-        shopToast.error("An unexpected error occurred. Please try again.");
+        alert("Error: An unexpected error occurred. Please try again.");
       }
     });
   }
@@ -65,12 +61,12 @@ if (signupModal) {
       const password = inputs[4].value;
 
       if (!shopName || !ownerName || !email || !password || !phone) {
-        shopToast.warning("Please fill in all required fields");
+        alert("Warning: Please fill in all required fields");
         return;
       }
 
       if (phone.length !== 10 || !/^\d+$/.test(phone)) {
-        shopToast.warning("Phone number must be exactly 10 digits");
+        alert("Warning: Phone number must be exactly 10 digits");
         return;
       }
 
@@ -90,17 +86,11 @@ if (signupModal) {
         if (response.ok) {
           const user = await response.json();
           localStorage.setItem("user", JSON.stringify(user));
-          setPendingToast(
-            "success",
-            "Your account has been created successfully.",
-            "Registration Successful",
-          );
+          alert("Success: Your account has been created successfully.");
           window.location.href = "./pages/dashboard.html";
         } else {
           const error = await response.json();
-          shopToast.error(
-            error.detail || "Error creating account. Please try again.",
-          );
+          alert("Error: " + (error.detail || "Error creating account. Please try again."));
         }
       } catch (error) {
         console.error("Signup error:", error);

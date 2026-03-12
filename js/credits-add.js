@@ -57,7 +57,7 @@ if (form) {
     const dateVal = dateInput.value;
 
     if (!customerId || !amount) {
-      shopToast.warning("Customer and Amount are required");
+      alert("Warning: Customer and Amount are required");
       return;
     }
 
@@ -75,15 +75,15 @@ if (form) {
       });
 
       if (response.ok) {
-        setPendingToast("success", "Credit record added successfully!", "Success");
+        alert("Success: Credit record added successfully!");
         window.location.href = "credits.html";
       } else {
         const err = await response.json();
-        shopToast.error(err.detail || "Failed to add credit record");
+        alert("Error: " + (err.detail || "Failed to add credit record"));
       }
     } catch (error) {
       console.error("Error:", error);
-      shopToast.error("An unexpected error occurred");
+      alert("Error: An unexpected error occurred");
     }
   });
 }

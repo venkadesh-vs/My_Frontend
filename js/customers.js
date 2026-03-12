@@ -88,15 +88,15 @@ async function deleteCustomer(id, userId) {
     );
 
     if (response.ok) {
-      setPendingToast("success", "Customer deleted successfully!", "Deleted");
+      alert("Success: Customer deleted successfully!");
       window.location.reload();
     } else {
       const err = await response.json();
-      shopToast.error(err.detail || "Failed to delete customer");
+      alert("Error: " + (err.detail || "Failed to delete customer"));
     }
   } catch (error) {
     console.error("Delete error:", error);
-    shopToast.error("An unexpected error occurred");
+    alert("Error: An unexpected error occurred");
   }
 }
 

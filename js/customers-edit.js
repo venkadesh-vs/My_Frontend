@@ -61,7 +61,7 @@ form.addEventListener("submit", async (e) => {
 
   const phone = phoneInput.value;
   if (phone.length !== 10 || !/^\d+$/.test(phone)) {
-    shopToast.warning("Phone number must be exactly 10 digits");
+    alert("Warning: Phone number must be exactly 10 digits");
     return;
   }
 
@@ -80,14 +80,14 @@ form.addEventListener("submit", async (e) => {
     );
 
     if (response.ok) {
-      setPendingToast("success", "Customer details updated successfully!", "Success");
+      alert("Success: Customer details updated successfully!");
       window.location.href = "customers.html";
     } else {
       const err = await response.json();
-      shopToast.error(err.detail || "Failed to update customer");
+      alert("Error: " + (err.detail || "Failed to update customer"));
     }
   } catch (error) {
     console.error("Update error:", error);
-    shopToast.error("An unexpected error occurred");
+    alert("Error: An unexpected error occurred");
   }
 });

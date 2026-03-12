@@ -89,14 +89,14 @@ async function deleteCredit(id, userId) {
     );
 
     if (response.ok) {
-      setPendingToast("success", "Credit record deleted successfully!", "Deleted");
+      alert("Success: Credit record deleted successfully!");
       window.location.reload();
     } else {
       const err = await response.json();
-      shopToast.error(err.detail || "Failed to delete credit record");
+      alert("Error: " + (err.detail || "Failed to delete credit record"));
     }
   } catch (error) {
     console.error("Delete error:", error);
-    shopToast.error("An unexpected error occurred");
+    alert("Error: An unexpected error occurred");
   }
 }

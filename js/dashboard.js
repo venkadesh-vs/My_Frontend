@@ -14,7 +14,7 @@ if (logoutBtn) {
   logoutBtn.addEventListener("click", (e) => {
     e.preventDefault();
     localStorage.removeItem("user");
-    setPendingToast("info", "You have been logged out safely.", "Logged Out");
+    alert("Info: You have been logged out safely.");
     window.location.href = "../index.html";
   });
 }

@@ -87,7 +87,7 @@ async function loadLedger(customerId, userId) {
     });
   } catch (error) {
     console.error(error);
-    shopToast.error("Failed to load ledger data");
+    alert("Error: Failed to load ledger data");
     if (summaryName) summaryName.textContent = "Error loading ledger";
   }
 }

@@ -22,12 +22,12 @@ if (form) {
     const email = inputs[2].value;
 
     if (!name || !phone) {
-      shopToast.warning("Name and Phone are required");
+      alert("Warning: Name and Phone are required");
       return;
     }
 
     if (phone.length !== 10 || !/^\d+$/.test(phone)) {
-      shopToast.warning("Phone number must be exactly 10 digits");
+      alert("Warning: Phone number must be exactly 10 digits");
       return;
     }
 
@@ -44,15 +44,15 @@ if (form) {
       });
 
       if (response.ok) {
-        setPendingToast("success", `Customer ${name} added successfully!`, "Success");
+        alert(`Success: Customer ${name} added successfully!`);
         window.location.href = "customers.html";
       } else {
         const err = await response.json();
-        shopToast.error(err.detail || "Failed to add customer");
+        alert("Error: " + (err.detail || "Failed to add customer"));
       }
     } catch (error) {
       console.error(error);
-      shopToast.error("An unexpected error occurred");
+      alert("Error: An unexpected error occurred");
     }
   });
 }
